@@ -1,0 +1,11 @@
+@import '~bootstrap/scss/bootstrap';
+
+$theme-colors: (
+  "dark":#222121,
+  "info":#252F64, 
+  "secondary":$secondary,
+  "danger":$danger,
+  "primary":$primary,
+);
+
+@import '~bootstrap/scss/bootstrap';

@@ -1,0 +1,45 @@
+div.search-bar {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    position: relative;
+}
+div.search-bar input {
+    background-image: url(https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-search-strong-256.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    text-indent: 40px;
+    padding: 3px;
+}
+div.search-bar input:focus {
+    background-image: none;
+    text-indent: 0px;
+}
+
+.auto-search-box {
+    position: absolute;
+    top:100%;
+    left:0%;
+    max-height: 200px; /* 최대 높이 지정 */
+    overflow-y: auto; /* 세로 스크롤이 나타나도록 설정 */
+    background-color: white;
+    border-radius: 10px;
+}
+
+.auto-search-items {
+    color:black;
+    padding: 10px;
+    overflow: auto;
+    text-indent: 50px;
+    font-size: 18px;
+    background-image: url('https://maplestory.io/api/gms/62/item/1402004/icon?resize=5');
+    background-size: contain; /* 또는 contain */
+    background-repeat: no-repeat;
+    background-origin: content-box;
+}
+
+.auto-search-items.selected {
+    background-color: #AFAFAF; /* 선택된 항목의 배경색을 파랑색으로 설정 */
+    border-radius: 10px;
+}
