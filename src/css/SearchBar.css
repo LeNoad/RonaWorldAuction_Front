@@ -33,10 +33,10 @@ div.search-bar input:focus {
     overflow: auto;
     text-indent: 50px;
     font-size: 18px;
-    background-image: url('https://maplestory.io/api/gms/62/item/1402004/icon?resize=5');
-    background-size: contain; /* 또는 contain */
+    /* background-image: url('https://maplestory.io/api/gms/62/item/1402004/icon?resize=5'); */
+    /* background-size: contain; 
     background-repeat: no-repeat;
-    background-origin: content-box;
+    background-origin: content-box; */
 }
 
 .auto-search-items.selected {

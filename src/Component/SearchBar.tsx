@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Col, Form, Row } from "react-bootstrap";
+import { Col, Form, Image, Row } from "react-bootstrap";
 import "../css/SearchBar.css";
 import { AxiosWrapper } from './AxiosWrapper';
 import { SearchBarProps } from '../Type/Interface';
 
 // 컴포넌트로 내보낼 준비 
-export const SearchBar: React.FC<SearchBarProps> = ({  size, onSearch }) => {
+export const SearchBar: React.FC<SearchBarProps> = ({ size, onSearch }) => {
     const [value, setValue] = useState<string>();
     /* 검색된 아이템 리스트 */
     const [searchedItem, setSearchedItem] = useState<any>();
@@ -22,6 +22,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({  size, onSearch }) => {
     useEffect(() => {
         if (value != undefined) {
             AxiosWrapper.post("/rona/api/searchName?itemName=" + value).then((data: any) => {
+                console.log(data.data.result.info)
                 setSearchedItem(data.data.result.info)
             })
             setShowAutoComplete(true);
@@ -37,7 +38,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({  size, onSearch }) => {
                 setShowAutoComplete(false);
             }
         }
-        
+
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
@@ -107,20 +108,25 @@ export const SearchBar: React.FC<SearchBarProps> = ({  size, onSearch }) => {
     return (
         <Row className='p-0 m-0 search-bar'>
             <Col xs={12} md={12} className='p-0 m-0 d-flex justify-content-center'>
-                <Form.Control size='lg' onChange={(e: any) => setValue(e.target.value)} placeholder='아이템 검색..' style={{width:size}}/>
+                <Form.Control size='lg' onChange={(e: any) => setValue(e.target.value)} placeholder='아이템 검색..' style={{ width: size }} />
             </Col>
             <Col xs={12} md={12} className='p-0 m-0'>
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                {showAutoComplete && ( <div ref={autoCompleteRef} className='auto-search-box' hidden={hiddenChecking()} style={{width:size}}>
+                    {showAutoComplete && (<div ref={autoCompleteRef} className='auto-search-box' hidden={hiddenChecking()} style={{ width: size }}>
                         {searchedItem?.map((item: any, index: number) => (
-                            <div key={index} className={ getItemClassName(index) }
+                            <div key={index} className={getItemClassName(index)}
                                 onMouseOver={() => { setSelectItem(item) }}
                                 onClick={() => handleItemClick(item)}
-                                style={{cursor:'pointer'}}>{item.itemName}</div>
-                                /* onClick={() => { navigator("/ItemSalePage", { state: { data: item }})}}  */
+                                style={{ cursor: 'pointer' }}>
+                                <div>
+                                    <Image src={`http://192.168.0.3:8080/images/${item.imageNo}.png`} width={30} />
+                                    { item.itemName }
+                                </div>
+                            </div>
+                            /* onClick={() => { navigator("/ItemSalePage", { state: { data: item }})}}  */
                         ))}
                     </div>
-                )}
+                    )}
                 </div>
             </Col>
         </Row>

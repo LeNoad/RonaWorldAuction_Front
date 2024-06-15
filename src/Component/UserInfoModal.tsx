@@ -14,10 +14,11 @@ export const UserInfoModal: React.FC<UserInfoModalProps> = ({ show, handleClose,
     // 등록된 거래 아이템 보여주고 판매완료 버튼 만들도록 하면 끝
     //const jwtTokenDto: jwtTokenDto = useSelector((state: any) => state?.jwtTokenDto);
     useEffect(() => {
-        console.log(userEntity.userSeq)
-        AxiosWrapper.post("/rona/api/searchMyAddItem?userSeq=" + userEntity.userSeq).then((data: any) => {
-            setSearchMyAddItemDto(data?.data?.result?.info)
-        });
+        if(userEntity){
+            AxiosWrapper.post("/rona/api/searchMyAddItem?userSeq=" + userEntity.userSeq).then((data: any) => {
+                setSearchMyAddItemDto(data?.data?.result?.info)
+            });
+        }
     }, [])
 
     const handleSellOk = (auctionSeq:number) => {

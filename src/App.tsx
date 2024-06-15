@@ -8,6 +8,7 @@ import ItemSellPage from './Web/ItemSellPage';
 import MainPage from './Web/MainPage';
 import base64 from "base-64";
 import ItemBuyPage from './Web/ItemBuyPage';
+import PartyBoard from './Web/PartyBoard';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -56,7 +57,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<MainPage />} />
         <Route path='/ItemSellPage' element={<ItemSellPage />} />
-        <Route path='/ItemBuyPage' element={<ItemBuyPage />} />
+        <Route path='/PartyBoard' element={<PartyBoard />} />
       </Routes>
     </BrowserRouter>
   );

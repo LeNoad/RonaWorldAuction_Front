@@ -1,4 +1,4 @@
-import { Col, Image, Row } from 'react-bootstrap';
+import { Button, Col, Image, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import DiscordLoginButton from '../Component/DiscordLoginButton';
 import SearchBar from '../Component/SearchBar';
@@ -21,6 +21,9 @@ export const MainPage = () => {
                 </Col>
                 <Col xs={12} md={12} className='py-4 d-flex justify-content-center'> 
                     <DiscordLoginButton />
+                </Col>
+                <Col xs={12} md={12} className='py-4 d-flex justify-content-center'> 
+                    <Button variant='info' onClick={() => navigator("/PartyBoard")}>레이드 모집 글 보러가기</Button>
                 </Col>
             </Row>
     );

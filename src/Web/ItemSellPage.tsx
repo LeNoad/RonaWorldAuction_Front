@@ -96,7 +96,6 @@ export const ItemSellPage = () => {
     const handleSelectItemSearch = (item: ItemInfoEntity) => {
         setItemInfoEntity2(undefined)
         AxiosWrapper.post("/rona/api/searchAllItemInfo?itemInfoSeq=" + item.itemInfoSeq).then((data: any) => {
-            console.log(data)
             setItemInfoEntity2(data.data.result.info.itemInfoEntity);
         });
         setRegisterItemInfoEntity({

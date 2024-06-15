@@ -69,7 +69,7 @@ export const ItemStatus: React.FC<ItemStatusProps> = ({ ItemInfo }) => {
                 {itemInfoEntity?.itemName}
             </Col>
             <Col xs={6} md={6} className='p-3'>
-                <Image src="https://maplestory.io/api/gms/62/item/1402004/icon?resize=5" style={{ backgroundColor: "#6C6C8C", border: 'none', borderRadius: 0 }} thumbnail />
+                <Image src={`http://192.168.0.3:8080/images/${itemInfoEntity.imageNo}.png`} style={{ backgroundColor: "#6C6C8C", border: 'none', borderRadius: 0 }} thumbnail />
             </Col>
             {ItemClassification()}
         </Row>

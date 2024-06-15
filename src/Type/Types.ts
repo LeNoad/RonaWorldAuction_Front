@@ -15,6 +15,7 @@ export type jwtTokenDto = {
 
 export type ItemInfoEntity = {
     accRate?: number,
+    imageNo?:number,
     atkPt?: number,
     atkSpd?: number,
     dexPt?: number,

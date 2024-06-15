@@ -174,7 +174,7 @@ export const ItemDetailStatus: React.FC<ItemDetailStatusProps> = ({ itemDetailLi
                     <Col xs={6} md={6} className="mt-3">
                         <Row style={{ backgroundColor: '#47476F', color: 'white' }} className="p-3 m-0">
                             <Col xs={3} md={3} className="p-2" onClick={() => handleModalOpen(item?.itemDetailEntity, item?.userSeq)} style={{ cursor: "pointer" }}>
-                                <Image src="https://maplestory.io/api/gms/62/item/1402004/icon?resize=5" style={{ backgroundColor: "#6C6C8C", border: 'none', borderRadius: 0 }} thumbnail />
+                                <Image src={`http://192.168.0.3:8080/images/${itemInfoEntity.imageNo}.png`} style={{ backgroundColor: "#6C6C8C", border: 'none', borderRadius: 0 }} thumbnail />
                             </Col>
                             <Col xs={9} md={9}>
                                 <Row>
@@ -221,7 +221,7 @@ export const ItemDetailStatus: React.FC<ItemDetailStatusProps> = ({ itemDetailLi
                             <h3>{itemInfoEntity?.itemName} ({itemDetailEntity?.upgradeCount})</h3>
                         </Col>
                         <Col xs={6} md={6} className='p-4'>
-                            <Image src="https://maplestory.io/api/gms/62/item/1402004/icon?resize=5" style={{ backgroundColor: "#6C6C8C", border: 'none', borderRadius: 0 }} thumbnail />
+                            <Image src={`http://192.168.0.3:8080/images/${itemInfoEntity.imageNo}.png`} style={{ backgroundColor: "#6C6C8C", border: 'none', borderRadius: 0 }} thumbnail />
                         </Col>
                         {ItemClassification()}
                     </Row>
